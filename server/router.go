@@ -1,9 +1,9 @@
 package server
 
 import (
+	"giligili/api"
+	"giligili/middleware"
 	"os"
-	"singo/api"
-	"singo/middleware"
 
 	"github.com/gin-gonic/gin"
 )
@@ -36,6 +36,12 @@ func NewRouter() *gin.Engine {
 			auth.GET("user/me", api.UserMe)
 			auth.DELETE("user/logout", api.UserLogout)
 		}
+
+		v1.POST("video", api.CreateVideo)
+		//v1.Get("videos/:id", api.CreateVideo)
+		//v1.Get("videos", api.CreateVideo)
+		//v1.Put("videos/:id", api.CreateVideo)
+		//v1.Delete("videos/:id", api.CreateVideo)
 	}
 	return r
 }
